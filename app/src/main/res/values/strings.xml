@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ITO5046</string>
+
+    <string name="navigation_draw_open">Open Navigation Drawer</string>
+    <string name="navigation_draw_close">Close Navigation Drawer</string>
+
+    <string-array name="judgeNo">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
