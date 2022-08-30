@@ -34,7 +34,6 @@ public class DeleteFragment extends Fragment {
                     @Override
                     public void run() {
                         competition = Database.getINSTANCE(getContext()).competitionDao().findCompetitionName(Singleton.getBattle());
-                        System.out.println(competition.toString());
                         Database.getINSTANCE(getContext()).competitionDao().deleteCompetition(competition);
                     }
                 });
