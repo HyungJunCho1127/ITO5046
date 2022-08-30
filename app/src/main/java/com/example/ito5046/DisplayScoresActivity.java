@@ -49,7 +49,6 @@ public class DisplayScoresActivity extends AppCompatActivity {
             @Override
             public void run() {
                 competition = Database.getINSTANCE(getApplicationContext()).competitionDao().findCompetitionName(Singleton.getBattle());
-                System.out.println(competition.toString());
 
         scores1 = storeDataInArrays();
         scoreCalculatorAdapter = new ScoreCalculatorAdapter(DisplayScoresActivity.this, scores1);
@@ -95,7 +94,6 @@ public class DisplayScoresActivity extends AppCompatActivity {
         rank1 = new ArrayList<>();
         rank2 = new ArrayList<>();
         rank3 = new ArrayList<>();
-        System.out.println("Score 1 is "  + score1[0]);
         if (score1[0] == "0"){
             rank1.add(new Ranking(0,0,-1));
         } else {
@@ -154,25 +152,20 @@ public class DisplayScoresActivity extends AppCompatActivity {
     }
 
     public ArrayList<Ranking> addAllScores(ArrayList<Ranking> score1, ArrayList<Ranking> score2, ArrayList<Ranking> score3){
-        System.out.println("score 1 is :" + score1.get(0).getCompetitorScore());
-        System.out.println("score 2 is :" + score2.get(0).getCompetitorScore());
-        System.out.println("score 3 is :" + score3.get(0).getCompetitorScore());
+
         addedRankingList = new ArrayList<>();
-        if (score3.get(0).getCompetitorScore() < 0 && score2.get(0).getCompetitorScore() < 0){
-            System.out.println("hit 1 :" + score1.get(0).getCompetitorScore());
+        if (score3.get(0).getCompetitorScore() == -1 && score2.get(0).getCompetitorScore() == -1){
             for (int i = 0; i < score1.size();i++){
                 addedRankingList.add( new Ranking(0, (i+1),score1.get(i).getCompetitorScore()));
             }
 
-        } else if (score2.get(0).getCompetitorScore() < 0){
-            System.out.println("hit 2 :" + score1.get(0).getCompetitorScore());
+        } else if (score3.get(0).getCompetitorScore() == -1){
             for (int i = 0; i < score1.size();i++){
                 addedRankingList.add( new Ranking(0, (i+1),(score1.get(i).getCompetitorScore() + score2.get(i).getCompetitorScore())));
             }
 
         } else  {
             for (int i = 0; i < score1.size();i++){
-                System.out.println("hit 3 :" + score1.get(0).getCompetitorScore());
                 addedRankingList.add( new Ranking(0, (i+1),(score1.get(i).getCompetitorScore() + score2.get(i).getCompetitorScore()
                 + score3.get(i).getCompetitorScore())));
             }
